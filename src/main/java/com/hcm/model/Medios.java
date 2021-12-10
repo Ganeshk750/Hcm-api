@@ -7,13 +7,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name="MEDIOS")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Medios {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +29,7 @@ public class Medios {
 	private Long medId;
 	
 	@Column(name="MEDIOS_RECORD")
-	private String mRec;
+	private String mRecord;
 	
 	@Column(name="MEDIOS_PRICE")
 	private int mPrice;
@@ -32,10 +40,16 @@ public class Medios {
 	 @Column(name="MEDIOS_TOTAL")
 	 private Long mTotal;
 	
+	 @Temporal(TemporalType.DATE)
+	 @Column(name="MED_DATE")
 	 private Date date;
 	 
+	 @OneToOne
+	 @JoinColumn(name="DOC_ID")
 	 private Doctor doctor;
 	 
+	 @OneToOne
+	 @JoinColumn(name="pid")
 	 private Patient patient;
 
 }

@@ -5,13 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name="DOCTOR")
 @NoArgsConstructor
+@Getter
+@Setter
 public class Doctor {
 	
 	@Id
@@ -28,8 +34,12 @@ public class Doctor {
 	@Column(name="DOCTROR_PHONE")
 	private Long phoneNo;
 	
+	@OneToOne
+	@JoinColumn(name="DEPT_ID")
 	private Department dept;
 	
+	@OneToOne
+	@JoinColumn(name="SPECI_ID")
 	private Specialization spec;
 	
 

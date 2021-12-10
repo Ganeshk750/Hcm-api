@@ -6,4 +6,6 @@ import com.hcm.model.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
+   public Doctor findByPhoneNo(Long phoneNo);
+	
 }
