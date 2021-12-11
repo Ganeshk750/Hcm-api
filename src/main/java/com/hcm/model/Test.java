@@ -32,7 +32,7 @@ public class Test {
 	
 	
 	
-	private Doctor doctor;
+//	private Doctor doctor;
 	
 	
 

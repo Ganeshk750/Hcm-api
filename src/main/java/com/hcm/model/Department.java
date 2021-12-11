@@ -13,10 +13,11 @@ import lombok.NoArgsConstructor;
 @Table(name="DEPARTMENT")
 @NoArgsConstructor
 public class Department {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="DEPT_ID")
-	private Long dId;
+    @Column(name="DEP_ID")
+	private Long deptId;
 	
 	@Column(name="DEPARTMENT_NAME")
 	private String deptName;

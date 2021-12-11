@@ -23,8 +23,8 @@ public class Ward {
 	private String wardName;
 	
 	
-	private Patient patient;
-	
-	
-	private Doctor doctor;
+//	private Patient patient;
+//	
+//	
+//	private Doctor doctor;
 }

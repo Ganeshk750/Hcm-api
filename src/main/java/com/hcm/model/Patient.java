@@ -31,9 +31,9 @@ public class Patient {
 	@Column(name="pmobile")
 	private Long pMobileNo;
 	
-	private Doctor doc;
-	
-	
-	private Test test;
+//	private Doctor doc;
+//	
+//	
+//	private Test test;
 
 }

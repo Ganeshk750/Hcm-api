@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
@@ -17,8 +19,8 @@ import lombok.NoArgsConstructor;
 public class Medios {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="MEDIOS_ID")
-	private Long medId;
+    @Column(name="MED_ID")
+	private Long mId;
 	
 	@Column(name="MEDIOS_RECORD")
 	private String mRec;
@@ -32,10 +34,14 @@ public class Medios {
 	 @Column(name="MEDIOS_TOTAL")
 	 private Long mTotal;
 	
-	 private Date date;
+//	 private Date date;
 	 
+	 @OneToOne
+	 @JoinColumn(name = "DOC_ID")
 	 private Doctor doctor;
 	 
+	 @OneToOne
+	 @JoinColumn(name = "pid")
 	 private Patient patient;
 
 }

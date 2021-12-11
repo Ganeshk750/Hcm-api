@@ -31,7 +31,7 @@ public class User {
 	@Size(min = 8, max = 120 , message = "Password Should lie between 8 to max 120 character")
 	private String password;
 	
-	private Set<Role> role = new HashSet<>();
+//	private Set<Role> role = new HashSet<>();
 	
 
 }

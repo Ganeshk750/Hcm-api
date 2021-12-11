@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
@@ -15,8 +17,8 @@ import lombok.NoArgsConstructor;
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="EMPLOYEE_ID")
-	private Long eId;
+    @Column(name="Emp_Id")
+	private Long empId;
 	
 	@Column(name="EMPLOYEE_NAME")
 	private String empName;
@@ -27,6 +29,12 @@ public class Employee {
 	@Column(name="EMPLOYEE_ADDRESS")
 	private String empAddress;
 	
+//	@OneToOne
+//	@Column(name = "DEP_ID")
+//	private Department dept;
+	
+	@OneToOne
+	@JoinColumn(name = "DEP_ID")
 	private Department dept;
 	
 

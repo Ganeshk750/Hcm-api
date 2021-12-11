@@ -24,9 +24,9 @@ public class Operation {
 	private String opName;
 	
 	
-	private Patient patient;
-	
-	
-	private Doctor doctor;
+//	private Patient patient;
+//	
+//	
+//	private Doctor doctor;
 
 }
