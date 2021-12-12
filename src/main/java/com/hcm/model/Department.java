@@ -7,11 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.NoArgsConstructor;
-
 @Entity
 @Table(name="DEPARTMENT")
-@NoArgsConstructor
 public class Department {
 	
 	@Id
@@ -21,5 +18,23 @@ public class Department {
 	
 	@Column(name="DEPARTMENT_NAME")
 	private String deptName;
+
+	public Long getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(Long deptId) {
+		this.deptId = deptId;
+	}
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+	
+	
 
 }

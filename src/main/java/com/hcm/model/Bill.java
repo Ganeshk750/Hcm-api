@@ -11,11 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.NoArgsConstructor;
-
 @Entity
 @Table(name="BILL")
-@NoArgsConstructor
 public class Bill {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +35,54 @@ public class Bill {
 	@OneToOne
 	@JoinColumn(name = "pid")
 	private Patient patient;
+
+	public Long getbId() {
+		return bId;
+	}
+
+	public void setbId(Long bId) {
+		this.bId = bId;
+	}
+
+	public double getBillAmmount() {
+		return billAmmount;
+	}
+
+	public void setBillAmmount(double billAmmount) {
+		this.billAmmount = billAmmount;
+	}
+
+	public boolean isBillInsuared() {
+		return billInsuared;
+	}
+
+	public void setBillInsuared(boolean billInsuared) {
+		this.billInsuared = billInsuared;
+	}
+
+	public Date getBillDate() {
+		return billDate;
+	}
+
+	public void setBillDate(Date billDate) {
+		this.billDate = billDate;
+	}
+
+	public Insurance getInsurance() {
+		return insurance;
+	}
+
+	public void setInsurance(Insurance insurance) {
+		this.insurance = insurance;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+	
+	
 }

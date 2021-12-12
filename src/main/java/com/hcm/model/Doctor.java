@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="DOCTOR")
-@NoArgsConstructor
 public class Doctor {
 	
 	@Id
@@ -37,6 +36,54 @@ public class Doctor {
 	@OneToOne
 	@JoinColumn(name = "SPEC_ID")
 	private Specialization spec;
-	
 
+	public Long getDoctorId() {
+		return doctorId;
+	}
+
+	public void setDoctorId(Long doctorId) {
+		this.doctorId = doctorId;
+	}
+
+	public String getDoctorName() {
+		return doctorName;
+	}
+
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
+	}
+
+	public String getDoctorAddress() {
+		return doctorAddress;
+	}
+
+	public void setDoctorAddress(String doctorAddress) {
+		this.doctorAddress = doctorAddress;
+	}
+
+	public Long getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(Long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public Department getDept() {
+		return dept;
+	}
+
+	public void setDept(Department dept) {
+		this.dept = dept;
+	}
+
+	public Specialization getSpec() {
+		return spec;
+	}
+
+	public void setSpec(Specialization spec) {
+		this.spec = spec;
+	}
+	
+   
 }

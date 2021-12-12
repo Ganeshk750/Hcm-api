@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="INSURANCE")
-@NoArgsConstructor
 public class Insurance {
 	
 	@Id
@@ -30,4 +29,37 @@ public class Insurance {
 	@OneToOne
 	@JoinColumn(name = "pid")
     private Patient pait;
+
+	public Long getiNo() {
+		return iNo;
+	}
+
+	public void setiNo(Long iNo) {
+		this.iNo = iNo;
+	}
+
+	public double getInsuranceAmmount() {
+		return insuranceAmmount;
+	}
+
+	public void setInsuranceAmmount(double insuranceAmmount) {
+		this.insuranceAmmount = insuranceAmmount;
+	}
+
+	public String getInsuranceExp() {
+		return insuranceExp;
+	}
+
+	public void setInsuranceExp(String insuranceExp) {
+		this.insuranceExp = insuranceExp;
+	}
+
+	public Patient getPait() {
+		return pait;
+	}
+
+	public void setPait(Patient pait) {
+		this.pait = pait;
+	}
+	
 }
