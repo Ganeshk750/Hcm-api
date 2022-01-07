@@ -10,9 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.hcm.dto.DepartmentDTO;
 import com.hcm.dto.DoctorDTO;
-import com.hcm.model.Department;
 import com.hcm.model.Doctor;
 import com.hcm.repository.DoctorRepository;
 import com.hcm.service.DoctorService;

@@ -9,7 +9,7 @@ public class EmployeeDTO {
 	
 	private long empId;
 	private String empName;
-	private String empMobileNo;
+	private long empMobNo;
 	private String empAdd;
 	private Department department;
 	

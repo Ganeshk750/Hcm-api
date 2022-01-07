@@ -7,4 +7,5 @@ import com.hcm.model.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     
 	public Employee findByEmpMob(Long empMob);
+	
 }
