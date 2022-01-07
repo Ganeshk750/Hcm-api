@@ -1,4 +1,4 @@
-package com.hcm.service;
+package com.hcm.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.hcm.dto.InsuranceDTO;
 import com.hcm.model.Insurance;
 import com.hcm.repository.InsuranceRepository;
+import com.hcm.service.InsuranceService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
