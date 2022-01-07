@@ -1,5 +1,7 @@
 package com.hcm.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.hcm.dto.OperationDTO;
+import com.hcm.model.Operation;
 import com.hcm.repository.OperationRepository;
 import com.hcm.service.OperationService;
 
@@ -24,27 +27,69 @@ public class OperationServiceImpl implements OperationService {
 
 	@Override
 	public OperationDTO save(OperationDTO operationDTO) {
-		return null;
+		Operation opt = convertDTOToModel(operationDTO);
+		operationRepository.save(opt);
+		log.info(":::::::::::::::::::::::::: "+ opt.getOid());
+		return convertModeToDTO(opt);
 	}
 
 	@Override
 	public OperationDTO update(OperationDTO operationDTO, long oId) throws Exception {
-		return null;
+		OperationDTO optDto = getById(oId);
+		optDto.setOName(operationDTO.getOName());
+		optDto.setDoctor(operationDTO.getDoctor());
+		optDto.setPatient(operationDTO.getPatient());
+		
+		Operation operation = convertDTOToModel(optDto);
+		operationRepository.save(operation);
+		log.info("update:::::::::::::::::::::::"+ operation.getOid());
+		return convertModeToDTO(operation);
 	}
 
 	@Override
 	public OperationDTO getById(long oId) throws Exception {
-		return null;
+		Operation operation = operationRepository.findById(oId)
+				.orElseThrow(() -> new Exception("ID NOT FOUND EXCEPTION :::: " + oId));
+		return convertModeToDTO(operation);
 	}
 
 	@Override
 	public List<OperationDTO> getAll() {
-		return null;
+		List<Operation> operationList = operationRepository.findAll();
+		List<OperationDTO> operationDTOList = new ArrayList<>();
+		for(Operation opt: operationList) {
+			operationDTOList.add(convertModeToDTO(opt));
+		}
+		return operationDTOList;
 	}
 
 	@Override
 	public Map<String, Boolean> delete(long oId) throws Exception {
-		return null;
+		Operation operation = convertDTOToModel(getById(oId));
+		operationRepository.delete(operation);
+		Map<String, Boolean> response = new HashMap<>();
+		
+		response.put("Delete", Boolean.TRUE);
+		
+		return response;
+	}
+	
+	private Operation convertDTOToModel(OperationDTO operationDTO) {
+		Operation operation = new Operation();
+		operation.setOid(operationDTO.getOid());
+		operation.setOpName(operationDTO.getOName());
+		operation.setDoctor(operation.getDoctor());
+		operation.setPatient(operationDTO.getPatient());
+		return operation;
+	}
+	
+	private OperationDTO convertModeToDTO(Operation operation) {
+		OperationDTO dto = new OperationDTO();
+		dto.setOid(operation.getOid());
+		dto.setOName(operation.getOpName());
+		dto.setDoctor(operation.getDoctor());
+		dto.setPatient(operation.getPatient());
+		return dto;
 	}
 
 }
