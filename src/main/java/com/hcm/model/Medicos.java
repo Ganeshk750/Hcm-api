@@ -22,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Medios {
+public class Medicos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="MEDIOS_ID")

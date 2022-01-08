@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.hcm.model.Medios;
+import com.hcm.model.Medicos;
 
-public interface MediosRepository extends JpaRepository<Medios, Long> {
+public interface MediosRepository extends JpaRepository<Medicos, Long> {
 
-	public List<Medios> findAllByPatientPid(Long pid);
+	public List<Medicos> findAllByPatientPid(Long pid);
+	
 }

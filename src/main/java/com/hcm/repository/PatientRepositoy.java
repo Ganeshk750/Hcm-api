@@ -7,4 +7,5 @@ import com.hcm.model.Patient;
 public interface PatientRepositoy extends JpaRepository<Patient, Long> {
 
 	public Patient findByPMobileNo(Long pMobileNo);
+	
 }
