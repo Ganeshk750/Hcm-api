@@ -5,14 +5,18 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.hcm.config.UserDetailsImpl;
 import com.hcm.config.jwt.JwtUtils;
@@ -43,8 +47,9 @@ public class LoginController {
 
 	private final JwtUtils jwtUtils;
 	
-	public ResponseEntity<?> authenticateUser(LoginRequestDTO loginRequest) {
-
+	@PostMapping("/signin")
+	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequestDTO loginRequest) {
+		
 		System.out.println(loginRequest.getUsername() + " : " + loginRequest.getPassword());
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -61,10 +66,12 @@ public class LoginController {
 												 userDetails.getId(), 
 												 userDetails.getUsername(),
 												 roles));
+		
 	}
-
 	
-	public ResponseEntity<?> registerUser(SignupRequestDTO signUpRequest) {
+	@PostMapping("/signup")
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequestDTO signUpRequest) {
+		
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
@@ -104,5 +111,4 @@ public class LoginController {
 
 		return ResponseEntity.ok(new MessageResponseDTO("User registered successfully!"));
 	}
-
 }
